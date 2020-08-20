@@ -1,0 +1,5 @@
+*.bak.xml
+log
+cache
+*.swp
+
