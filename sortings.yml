@@ -1,0 +1,8 @@
+---
+- Actions:
+    - Description: Sort by SeriesNumber
+      Type: sort
+      SortTag: 0020,0011
+      SortType: integer
+      SortDirection: asc
+

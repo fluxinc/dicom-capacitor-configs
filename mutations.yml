@@ -1,7 +1,7 @@
 ---
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: ORIGINAL\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))
+      MatchExpression: ^ORIGINAL\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))$
   Actions:
     - Description: Update Image Type
       Type: add_or_update
@@ -11,11 +11,17 @@
       Type: add_or_update
       DestinationTag: 0020,0011
       DestinationValue: '71200000'
+    - Description: Update Series description
+      Type: add_or_update
+      SourceTag: 0008,103e
+      SourceExpression: ^T_PR (L|R)-(CC|MLO) .+$
+      DestinationTag: 0008,103e
+      DestinationValue: $1 $2 Raw Tomosynthesis Projection
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: DERIVED\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))
+      MatchExpression: ^DERIVED\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))$
   Actions:
-    - Description: Update Image Type
+    - Description: Update Image Typea
       Type: add_or_update
       DestinationTag: 0008,0008
       DestinationValue: DERIVED\PRIMARY
@@ -25,7 +31,25 @@
       DestinationValue: '71300000'
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))
+      MatchExpression: ^DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))\\INSIGHT_2D$
+  Actions:
+    - Description: Update Image Type
+      Type: add_or_update
+      DestinationTag: 0008,0008
+      DestinationValue: DERIVED\PRIMARY\TOMOSYNTHESIS\GENERATED_2D
+    - Description: Update Series Number
+      Type: add_or_update
+      DestinationTag: 0020,0011
+      DestinationValue: '71300000'
+    - Description: Update Series description
+      Type: add_or_update
+      SourceTag: 0008,103e
+      SourceExpression: ^INSIGHT 2D (L|R)-(CC|MLO) .+$
+      DestinationTag: 0008,103e
+      DestinationValue: $1 $2 C-View
+- Conditions:
+    - MatchTag: 0008,0008
+      MatchExpression: ^DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))$
   Actions:
     - Description: Update Image Type
       Type: add_or_update
@@ -35,18 +59,12 @@
       Type: add_or_update
       DestinationTag: 0020,0011
       DestinationValue: '72400000'
-- Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))\\INSIGHT_2D$
-  Actions:
-    - Description: Update Image Type
+    - Description: Update Series description
       Type: add_or_update
-      DestinationTag: 0008,0008
-      DestinationValue: ^DERIVED\PRIMARY\TOMOSYNTHESIS\GENERATED_2D$
-    - Description: Update Series Number
-      Type: add_or_update
-      DestinationTag: 0020,0011
-      DestinationValue: '71300000'
+      SourceTag: 0008,103e
+      SourceExpression: ^T_PR (L|R)-(CC|MLO) .+$
+      DestinationTag: 0008,103e
+      DestinationValue: $1 $2 Breast Projection Image
 - Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^DERIVED\\PRIMARY\\TOMOSYNTHESIS\\NONE$
@@ -55,6 +73,12 @@
       Type: add_or_update
       DestinationTag: 0020,0011
       DestinationValue: '73200000'
+    - Description: Update Series description
+      Type: add_or_update
+      SourceTag: 0008,103e
+      SourceExpression: ^BTO_TOMO (L|R)-(CC|MLO) .+$
+      DestinationTag: 0008,103e
+      DestinationValue: $1 $2  Breast Tomosynthesis Image
 - Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^DERIVED\\PRIMARY\\TOMOSYNTHESIS\\INSIGHT_3D$
