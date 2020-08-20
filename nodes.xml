@@ -11,6 +11,15 @@
   </DicomNodes>
   <DicomNodes>
     <Role>Storage</Role>
+    <AeTitle>RADMANAGER</AeTitle>
+    <HostName>199.242.237.153</HostName>
+    <Port>104</Port>
+    <Impersonate>true</Impersonate>
+    <Instances>0</Instances>
+    <Status>Echo</Status>
+  </DicomNodes>
+  <DicomNodes>
+    <Role>Storage</Role>
     <AeTitle>UTSWICAD3</AeTitle>
     <HostName>172.28.217.3</HostName>
     <Port>104</Port>

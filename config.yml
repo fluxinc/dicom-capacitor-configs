@@ -2,10 +2,9 @@ activationCode: ''
 minimumAge: 5
 daysToKeepLogs: 60
 worklistInterval: 30000
-echoInterval: 1000
-defaultTransferSyntax: ''
+defaultTransferSyntax: JPEGLossless  
 worklistDays: 0
-storageTimeout: 60
+storageTimeout: 1800
 expiryThreshhold: 604800
 scpPort: 1040
 minFreeSpace: 10
@@ -15,7 +14,9 @@ storageInterval: 5000
 maxDataBuffer: 1048776
 maxClientsPerServer: 0
 myAeTitle: FLUX_CAPACITOR
-dropUnfilteredInstances: true
+dropUnfilteredInstances: false
 batchSize: 50
 cachePath: X:\Cache
 maxPDVsPerPDU: 1
+clientTimeout: 600
+echoInterval: 0
