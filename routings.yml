@@ -1,0 +1,5 @@
+---
+- Actions:
+    - Description: Add SecurView
+      Type: add_destination
+      Target: RADMANAGER
