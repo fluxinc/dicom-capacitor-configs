@@ -20,3 +20,4 @@ cachePath: X:\Cache
 maxPDVsPerPDU: 1
 clientTimeout: 600
 echoInterval: 0
+studyThreshold: 60
