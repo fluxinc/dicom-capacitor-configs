@@ -10,7 +10,7 @@ worklistDays: 0
 storageTimeout: 1800
 expiryThreshhold: 604800
 minFreeSpace: 10
-filters: mutate,sort
+filters: route,mutate,sort
 storageInterval: 5000
 maxDataBuffer: 1048776
 maxClientsPerServer: 0

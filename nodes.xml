@@ -30,4 +30,15 @@
     <Status>Echo</Status>
     <Interval>5</Interval>
   </DicomNodes>
+  <DicomNodes>
+    <Role>Storage</Role>
+    <AeTitle>LOOPBACK</AeTitle>
+    <HostName>127.0.0.1</HostName>
+    <Port>4444</Port>
+    <Impersonate>true</Impersonate>
+    <TransferSyntax>JPEGLossless</TransferSyntax>
+    <Instances>0</Instances>
+    <Status>Echo</Status>
+    <Interval>5</Interval>
+  </DicomNodes>
 </DicomNodesDataSet>
