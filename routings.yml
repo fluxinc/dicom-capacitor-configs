@@ -1,8 +1,10 @@
 ---
 - AeTitles:
     - UTSW_SCP
+  Conditions:
+    - MatchTag: 0008,0008 
+      MatchExpression: ^(?:(?!INSIGHT).)*$
   Actions:
     - Description: Add SecurView
       Type: add_destination
       Target: RADMANAGER
-
