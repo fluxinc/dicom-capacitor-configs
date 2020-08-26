@@ -8,4 +8,13 @@
     - Description: Add SecurView
       Type: add_destination
       Target: RADMANAGER
-
+---
+- AeTitles:
+    - UTSW_SCP
+  Conditions:
+    - MatchTag: 0010,0010
+      MatchExpression: ^FLUX.+*$
+  Actions:
+    - Description: Add SecurView
+      Type: add_destination
+      Target: RADMANAGER
