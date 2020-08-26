@@ -5,14 +5,14 @@
     - MatchTag: 0018,1030
       MatchExpression: ^MAMMOGRAM$
   Actions:
-    - Description: Update Image Type
+    - Description: Update Image Type for 2D
       Type: add_or_update
       DestinationTag: 0008,0008
       DestinationValue: ORIGINAL\PRIMARY
     - Description: Update Series Number
       Type: add_or_update
       DestinationTag: 0020,0011
-      DestinationValue: '71200000'
+      DestinationValue: '71100000'
     - Description: Update Series description
       Type: add_or_update
       SourceTag: 0008,103e
@@ -32,7 +32,7 @@
     - Description: Update Series Number
       Type: add_or_update
       DestinationTag: 0020,0011
-      DestinationValue: '71300000'
+      DestinationValue: '71200000'
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_2D$
