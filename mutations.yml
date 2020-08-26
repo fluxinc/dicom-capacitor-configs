@@ -1,7 +1,9 @@
 ---
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: ^ORIGINAL\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))$
+      MatchExpression: ^ORIGINAL\\.*$
+    - MatchTag: 0018,1030
+      MatchExpression: ^MAMMOGRAM$
   Actions:
     - Description: Update Image Type
       Type: add_or_update
@@ -19,9 +21,11 @@
       DestinationValue: $1 $2 Raw Tomosynthesis Projection
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\\\(?:(?:LEFT)|(?:RIGHT))$
+      MatchExpression: ^DERIVED\\.*$
+    - MatchTag: 0018,1030
+      MatchExpression: ^MAMMOGRAM$
   Actions:
-    - Description: Update Image Typea
+    - Description: Update Image Type
       Type: add_or_update
       DestinationTag: 0008,0008
       DestinationValue: DERIVED\PRIMARY
@@ -30,8 +34,8 @@
       DestinationTag: 0020,0011
       DestinationValue: '71300000'
 - Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))\\INSIGHT_2D$
+    - MatchTag: 0018,1030
+      MatchExpression: ^INSIGHT_2D$
   Actions:
     - Description: Update Image Type
       Type: add_or_update
@@ -48,8 +52,8 @@
       DestinationTag: 0008,103e
       DestinationValue: $1 $2 C-View
 - Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\TOMO_2D\\(?:(?:LEFT)|(?:RIGHT))$
+    - MatchTag: 0018,1030
+      MatchExpression: ^TOMO_PROJ$
   Actions:
     - Description: Update Image Type
       Type: add_or_update
@@ -66,8 +70,8 @@
       DestinationTag: 0008,103e
       DestinationValue: $1 $2 Breast Projection Image
 - Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\TOMOSYNTHESIS\\NONE$
+    - MatchTag: 0018,1030
+      MatchExpression: ^TOMO$
   Actions:
     - Description: Update Series Number
       Type: add_or_update
@@ -80,11 +84,11 @@
       DestinationTag: 0008,103e
       DestinationValue: $1 $2  Breast Tomosynthesis Image
 - Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\PRIMARY\\TOMOSYNTHESIS\\INSIGHT_3D$
+- Conditions:
+    - MatchTag: 0018,1030
+      MatchExpression: ^INSIGHT_3D$
   Actions:
     - Description: Update Series Number
       Type: add_or_update
       DestinationTag: 0020,0011
       DestinationValue: '84200000'
-
