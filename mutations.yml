@@ -84,7 +84,6 @@
       DestinationTag: 0008,103e
       DestinationValue: $1 $2  Breast Tomosynthesis Image
 - Conditions:
-- Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
