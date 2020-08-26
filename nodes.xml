@@ -5,6 +5,7 @@
     <AeTitle>UTSW_SCP</AeTitle>
     <HostName>129.112.8.253</HostName>
     <Port>104</Port>
+    <BatchSize>0</BatchSize>
     <TransferSyntax>JPEGLossless</TransferSyntax>
     <Impersonate>true</Impersonate>
     <Instances>0</Instances>
@@ -15,6 +16,7 @@
     <AeTitle>RADMANAGER</AeTitle>
     <HostName>199.242.237.153</HostName>
     <Port>104</Port>
+    <BatchSize>1</BatchSize>
     <TransferSyntax>JPEGLossless</TransferSyntax>
     <Impersonate>true</Impersonate>
     <Instances>0</Instances>
