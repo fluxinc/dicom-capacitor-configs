@@ -101,7 +101,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^INSIGHT 2D (L|R)-(CC|MLO) .+$
+        Expression: ^(L|R) (CC|MLO) C-View$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
@@ -131,7 +131,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^T_PR (L|R)-(CC|MLO) .+$
+        Expression: ^(L|R) (CC|MLO) Breast Projection Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
@@ -156,7 +156,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^BTO_TOMO (L|R)-(CC|MLO) .+$
+        Expression: ^(L|R) (CC|MLO) Breast Tomosynthesis Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
@@ -181,7 +181,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO) .+$
+        Expression: ^(L|R) (CC|MLO) Breast Insight 3D Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
