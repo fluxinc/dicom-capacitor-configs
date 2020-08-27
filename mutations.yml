@@ -26,6 +26,17 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0055,1001
+        Expression: ^(R|L)-(CC|MLO) PRIME$
+        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
+        PrivateTagVR: LO
+        PrivateTagVM: 1
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^DERIVED\\.*$
@@ -53,6 +64,17 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0055,1001
+        Expression: ^(R|L)-(CC|MLO) PRIME$
+        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
+        PrivateTagVR: LO
+        PrivateTagVM: 1
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_2D$
@@ -75,6 +97,14 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2 C-View
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^INSIGHT 2D (L|R)-(CC|MLO) .+$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO_PROJ$
@@ -97,6 +127,14 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2 Breast Projection Image
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^T_PR (L|R)-(CC|MLO) .+$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO$
@@ -114,6 +152,14 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2 Breast Tomosynthesis Image
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^BTO_TOMO (L|R)-(CC|MLO) .+$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
@@ -123,3 +169,19 @@
       Destination:
         Tag: 0020,0011
         Value: '84200000'
+    - Description: Update Series description
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO) .+$
+      Destination:
+        Tag: 0008,103e
+        Value: $1 $2 Breast Insight 3D Image
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO) .+$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
