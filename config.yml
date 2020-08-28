@@ -1,7 +1,7 @@
 activationCode: ''
-cachePath: X:\test\Cache\
-scpPort: 2040
-findScpPort: 2041
+cachePath: X:\Cache\
+scpPort: 1040
+findScpPort: 1041
 minimumAge: 5
 daysToKeepLogs: 60
 worklistInterval: 30000
