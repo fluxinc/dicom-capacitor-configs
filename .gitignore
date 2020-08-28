@@ -7,3 +7,4 @@ cache
 *.bak
 ??-*
 *~
+private_tags.0.xml
