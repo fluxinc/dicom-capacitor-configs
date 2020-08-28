@@ -2,4 +2,7 @@
 log
 cache
 *.swp
-
+\#*
+* - *
+*.bak
+??-*
