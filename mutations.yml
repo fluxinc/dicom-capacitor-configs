@@ -1,7 +1,7 @@
 ---
 - Conditions:
     - MatchTag: 0008,0070
-      MatchExpression: ^(?:(?!HOLOGIC).)*$
+      MatchExpression: ^SIEMENS$
   Actions:
     - Description: Update manufacturer
       Type: add_or_update
