@@ -5,3 +5,7 @@
     - Description: Add SecurView
       Type: add_destination
       Target: RADMANAGER
+- Actions:
+    - Description: Keep backups
+      Type: save_file
+      Target: X:\cache\stash
