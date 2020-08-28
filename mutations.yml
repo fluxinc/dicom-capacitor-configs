@@ -1,5 +1,19 @@
 ---
 - Conditions:
+    - MatchTag: 0008,0070
+      MatchExpression: ^(?:(?!HOLOGIC).)*$
+  Actions:
+    - Description: Update manufacturer
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0070
+        Value: HOLOGIC, Inc.
+    - Description: Update model
+      Type: add_or_update
+      Destination:
+        Tag: 0008,1090
+        Value: Selenia Dimensions
+- Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^ORIGINAL\\.*$
     - MatchTag: 0018,1030
@@ -14,23 +28,23 @@
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '71100000'
+        Value: '72000000'
     - Description: Update Series description 2D
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO) PRIME$
+        Expression: ^.*(R|L)-(CC|MLO).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
       Destination:
         Tag: 0008,103e
-        Value: $1 $2
+        Value: $1 $2 Raw Tomosynthesis Projection
     - Description: Update Protocol
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO) PRIME$
+        Expression: ^.*(R|L)-(CC|MLO).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -39,7 +53,7 @@
         Value: $1 $2 ComboHD
 - Conditions:
     - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\.*$
+      MatchExpression: ^DERIVED\\.+$
     - MatchTag: 0018,1030
       MatchExpression: ^MAMMOGRAM$
   Actions:
@@ -57,7 +71,7 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO) PRIME$
+        Expression: ^(R|L)-(CC|MLO).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -68,7 +82,7 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO) PRIME$
+        Expression: ^(R|L)-(CC|MLO).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
