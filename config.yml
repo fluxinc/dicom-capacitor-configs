@@ -10,7 +10,7 @@ worklistDays: 0
 storageTimeout: 1800
 expiryThreshhold: 604800
 minFreeSpace: 10
-filters: route,mutate,sort
+filters: route,mutate
 storageInterval: 5000
 maxDataBuffer: 1048776
 maxClientsPerServer: 0
@@ -20,5 +20,5 @@ batchSize: 0
 maxPDVsPerPDU: 1
 clientTimeout: 600
 echoInterval: 0
-studyThreshold: 180
+studyThreshold: 0
 
