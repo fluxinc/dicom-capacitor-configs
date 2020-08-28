@@ -14,8 +14,12 @@
     - MatchTag: 0008,0008
       MatchExpression: ^.+INSIGHT.+$
     - MatchTag: 0010,0010
-      MatchExpression: ^FLUX.+*$
+      MatchExpression: ^FLUX.*$
   Actions:
     - Description: Add SecurView
       Type: add_destination
       Target: RADMANAGER
+- Actions:
+    - Description: Keep backups
+      Type: save_file
+      Target: X:\cache\stash
