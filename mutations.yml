@@ -1,4 +1,5 @@
 ---
+# ORIGINAL MAMMOGRAM -> Raw Tomosynthesis Projection
 - Conditions:
     - MatchTag: 0008,0070
       MatchExpression: ^SIEMENS$
@@ -33,7 +34,7 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^.*(R|L)-(CC|MLO).*$
+        Expression: ^.*(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -44,13 +45,15 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^.*(R|L)-(CC|MLO).*$
+        Expression: ^.*(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# DERIVED MAMMOGRAM -> 2D
 - Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^DERIVED\\.+$
@@ -66,12 +69,12 @@
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '71200000'
+        Value: '71300000'
     - Description: Update Series description 2D
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO).*$
+        Expression: ^(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -82,13 +85,15 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO).*$
+        Expression: ^(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# INSIGHT_2D -> C-View 71300000
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_2D$
@@ -107,7 +112,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^INSIGHT 2D (L|R)-(CC|MLO) .+$
+        Expression: ^INSIGHT 2D (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
       Destination:
         Tag: 0008,103e
         Value: $1 $2 C-View
@@ -115,10 +120,12 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO) C-View$
+        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) C-View$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# TOMO_PROJ -> Breast Projection Image 72400000
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO_PROJ$
@@ -137,7 +144,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^T_PR (L|R)-(CC|MLO) .+$
+        Expression: ^T_PR (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
       Destination:
         Tag: 0008,103e
         Value: $1 $2 Breast Projection Image
@@ -145,10 +152,12 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO) Breast Projection Image$
+        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Breast Projection Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# BTO_TOMO -> Breast Tomosynthesis Image
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO$
@@ -162,7 +171,7 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^BTO_TOMO (L|R)-(CC|MLO) .+$
+        Expression: ^BTO_TOMO (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
       Destination:
         Tag: 0008,103e
         Value: $1 $2 Breast Tomosynthesis Image
@@ -170,32 +179,39 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO) Breast Tomosynthesis Image$
+        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Breast Tomosynthesis Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# Insight 3D -> Projection
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
+    - Description: Update Image Type
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0008
+        Value: DERIVED\PRIMARY
     - Description: Update Series Number
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '84200000'
+        Value: '72100000'
     - Description: Update Series description
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO) .+$
+        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
       Destination:
         Tag: 0008,103e
-        Value: $1 $2 Breast Insight 3D Image
+        Value: $1 $2 Tomosynthesis Projection
     - Description: Update Protocol
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO) Breast Insight 3D Image$
+        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Tomosynthesis Projection$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
