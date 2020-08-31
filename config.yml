@@ -20,5 +20,5 @@ batchSize: 0
 maxPDVsPerPDU: 1
 clientTimeout: 600
 echoInterval: 0
-studyThreshold: 120
+studyThreshold: 0
 
