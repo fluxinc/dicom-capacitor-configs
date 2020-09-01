@@ -1,8 +1,10 @@
 ---
-# ORIGINAL MAMMOGRAM -> Raw Tomosynthesis Projection
+# ORIGINAL MAMMOGRAM -> 2D 71200000
 - Conditions:
-    - MatchTag: 0008,0070
-      MatchExpression: ^SIEMENS$
+    - MatchTag: 0008,0008
+      MatchExpression: ^ORIGINAL\\.*$
+    - MatchTag: 0018,1030
+      MatchExpression: ^MAMMOGRAM$
   Actions:
     - Description: Update manufacturer
       Type: add_or_update
@@ -14,67 +16,16 @@
       Destination:
         Tag: 0008,1090
         Value: Selenia Dimensions
-- Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^ORIGINAL\\.*$
-    - MatchTag: 0018,1030
-      MatchExpression: ^MAMMOGRAM$
-  Actions:
     - Description: Update Image Type for 2D
       Type: add_or_update
       Destination:
         Tag: 0008,0008
         Value: ORIGINAL\PRIMARY
-    - Description: Update Series Number
-      Type: add_or_update
-      Destination:
-        Tag: 0020,0011
-        Value: '72000000'
     - Description: Update Series description 2D
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^.*(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
-        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
-        PrivateTagVR: LO
-        PrivateTagVM: 1
-      Destination:
-        Tag: 0008,103e
-        Value: $1 $2 Raw Tomosynthesis Projection
-    - Description: Update Protocol
-      Type: add_or_update
-      Source:
-        Tag: 0055,1001
-        Expression: ^.*(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
-        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
-        PrivateTagVR: LO
-        PrivateTagVM: 1
-      Destination:
-        Tag: 0018,1030
-        Value: $1 $2 ComboHD
-
-# DERIVED MAMMOGRAM -> 2D
-- Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^DERIVED\\.+$
-    - MatchTag: 0018,1030
-      MatchExpression: ^MAMMOGRAM$
-  Actions:
-    - Description: Update Image Type
-      Type: add_or_update
-      Destination:
-        Tag: 0008,0008
-        Value: DERIVED\PRIMARY
-    - Description: Update Series Number
-      Type: add_or_update
-      Destination:
-        Tag: 0020,0011
-        Value: '71300000'
-    - Description: Update Series description 2D
-      Type: add_or_update
-      Source:
-        Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
+        Expression: ^.*(R|L)-([A-Z]{2,4}).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -85,7 +36,7 @@
       Type: add_or_update
       Source:
         Tag: 0055,1001
-        Expression: ^(R|L)-(CC|MLO|XCCL|SIO|AT|XCCM).*$
+        Expression: ^.*(R|L)-([A-Z]{2,4}).*$
         PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
         PrivateTagVR: LO
         PrivateTagVM: 1
@@ -93,102 +44,66 @@
         Tag: 0018,1030
         Value: $1 $2 ComboHD
 
-# INSIGHT_2D -> C-View 71300000
+# DERIVED MAMMOGRAM -> 2D 71300000
 - Conditions:
+    - MatchTag: 0008,0008
+      MatchExpression: ^ORIGINAL\\.*$
     - MatchTag: 0018,1030
-      MatchExpression: ^INSIGHT_2D$
+      MatchExpression: ^MAMMOGRAM$
   Actions:
-    - Description: Update Image Type
+    - Description: Update manufacturer
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0070
+        Value: HOLOGIC, Inc.
+    - Description: Update model
+      Type: add_or_update
+      Destination:
+        Tag: 0008,1090
+        Value: Selenia Dimensions
+    - Description: Update Image Type for 2D
       Type: add_or_update
       Destination:
         Tag: 0008,0008
-        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\GENERATED_2D
-    - Description: Update Series Number
-      Type: add_or_update
-      Destination:
-        Tag: 0020,0011
-        Value: '71300000'
-    - Description: Update Series description
+        Value: DERIVED\PRIMARY
+    - Description: Update Series description 2D
       Type: add_or_update
       Source:
-        Tag: 0008,103e
-        Expression: ^INSIGHT 2D (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
+        Tag: 0055,1001
+        Expression: ^.*(R|L)-([A-Z]{2,4}).*$
+        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
+        PrivateTagVR: LO
+        PrivateTagVM: 1
       Destination:
         Tag: 0008,103e
-        Value: $1 $2 C-View
+        Value: $1 $2
     - Description: Update Protocol
       Type: add_or_update
       Source:
-        Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) C-View$
+        Tag: 0055,1001
+        Expression: ^.*(R|L)-([A-Z]{2,4}).*$
+        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
+        PrivateTagVR: LO
+        PrivateTagVM: 1
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
 
-# TOMO_PROJ -> Breast Projection Image 72400000
+# TOMO_PROJ -> 2D 71300000
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO_PROJ$
   Actions:
-    - Description: Update Image Type
+    - Description: Update manufacturer
       Type: add_or_update
       Destination:
-        Tag: 0008,0008
-        Value: DERIVED\PRIMARY\TOMO_PROJ\NONE
-    - Description: Update Series Number
+        Tag: 0008,0070
+        Value: HOLOGIC, Inc.
+    - Description: Update model
       Type: add_or_update
       Destination:
-        Tag: 0020,0011
-        Value: '72400000'
-    - Description: Update Series description
-      Type: add_or_update
-      Source:
-        Tag: 0008,103e
-        Expression: ^T_PR (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
-      Destination:
-        Tag: 0008,103e
-        Value: $1 $2 Breast Projection Image
-    - Description: Update Protocol
-      Type: add_or_update
-      Source:
-        Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Breast Projection Image$
-      Destination:
-        Tag: 0018,1030
-        Value: $1 $2 ComboHD
-
-# BTO_TOMO -> Breast Tomosynthesis Image
-- Conditions:
-    - MatchTag: 0018,1030
-      MatchExpression: ^TOMO$
-  Actions:
-    - Description: Update Series Number
-      Type: add_or_update
-      Destination:
-        Tag: 0020,0011
-        Value: '73200000'
-    - Description: Update Series description
-      Type: add_or_update
-      Source:
-        Tag: 0008,103e
-        Expression: ^BTO_TOMO (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
-      Destination:
-        Tag: 0008,103e
-        Value: $1 $2 Breast Tomosynthesis Image
-    - Description: Update Protocol
-      Type: add_or_update
-      Source:
-        Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Breast Tomosynthesis Image$
-      Destination:
-        Tag: 0018,1030
-        Value: $1 $2 ComboHD
-
-# Insight 3D -> Projection
-- Conditions:
-    - MatchTag: 0018,1030
-      MatchExpression: ^INSIGHT_3D$
-  Actions:
+        Tag: 0008,1090
+        Value: Selenia Dimensions
     - Description: Update Image Type
       Type: add_or_update
       Destination:
@@ -198,20 +113,156 @@
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '72100000'
+        Value: '71300000'
     - Description: Update Series description
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^BTO_INSIGHT 3D (L|R)-(CC|MLO|XCCL|SIO|AT|XCCM) .+$
+        Expression: ^T_PR (L|R)-([A-Z]{2,4}) .+$
       Destination:
         Tag: 0008,103e
-        Value: $1 $2 Tomosynthesis Projection
+        Value: $1 $2
     - Description: Update Protocol
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) (CC|MLO|XCCL|SIO|AT|XCCM) Tomosynthesis Projection$
+        Expression: ^(L|R) ([A-Z]{2,4})$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD
+
+# INSIGHT_2D -> C-View 71400000
+- Conditions:
+    - MatchTag: 0018,1030
+      MatchExpression: ^INSIGHT_2D$
+  Actions:
+    - Description: Update manufacturer
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0070
+        Value: HOLOGIC, Inc.
+    - Description: Update model
+      Type: add_or_update
+      Destination:
+        Tag: 0008,1090
+        Value: Selenia Dimensions
+    - Description: Update Image Type
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0008
+        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\GENERATED_2D
+    - Description: Update Series Number
+      Type: add_or_update
+      Destination:
+        Tag: 0020,0011
+        Value: '71400000'
+    - Description: Update Series description
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^INSIGHT 2D (L|R)-([A-Z]{2,4}) .+$
+      Destination:
+        Tag: 0008,103e
+        Value: $1 $2 C-View
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^(L|R) ([A-Z]{2,4}) C-View$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
+
+# BTO_TOMO -> Breast Tomosynthesis Image 72400000
+- Conditions:
+    - MatchTag: 0018,1030
+      MatchExpression: ^TOMO$
+  Actions:
+    - Description: Update manufacturer
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0070
+        Value: HOLOGIC, Inc.
+    - Description: Update model
+      Type: add_or_update
+      Destination:
+        Tag: 0008,1090
+        Value: Selenia Dimensions
+    - Description: Update Image Type
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0008
+        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
+    - Description: Update Series Number
+      Type: add_or_update
+      Destination:
+        Tag: 0020,0011
+        Value: '72400000'
+    - Description: Update Series description
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^BTO_TOMO (L|R)-([A-Z]{2,4}) .+$
+      Destination:
+        Tag: 0008,103e
+        Value: $1 $2 Breast Tomosynthesis Image
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^(L|R) ([A-Z]{2,4}) Breast Tomosynthesis Image$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
+
+# Insight 3D -> Breast Projection Image 72400000
+- Conditions:
+    - MatchTag: 0018,1030
+      MatchExpression: ^INSIGHT_3D$
+  Actions:
+    #    - Description: Update manufacturer
+    #      Type: add_or_update
+    #      Destination:
+    #        Tag: 0008,0070
+    #        Value: HOLOGIC, Inc.
+    #    - Description: Update model
+    #      Type: add_or_update
+    #      Destination:
+    #        Tag: 0008,1090
+    #        Value: Selenia Dimensions
+    #    - Description: Update Image Type
+    #      Type: add_or_update
+    #      Destination:
+    #        Tag: 0008,0008
+    #        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
+    - Description: Update Series Number
+      Type: add_or_update
+      Destination:
+        Tag: 0020,0011
+        Value: '80000000'
+    - Description: Update Series description
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^BTO_INSIGHT 3D (L|R)-([A-Z]{2,4}) .+$
+      Destination:
+        Tag: 0008,103e
+        Value: $1 $2 Insight 3D Tomosynthesis Image
+    - Description: Update Protocol
+      Type: add_or_update
+      Source:
+        Tag: 0008,103e
+        Expression: ^(L|R) ([A-Z]{2,4}) Insight 3D Tomosynthesis Image$
+      Destination:
+        Tag: 0018,1030
+        Value: $1 $2 ComboHD
+
+- Conditions:
+    - MatchTag: 0020,0011
+      MatchExpression: ^[\d]{2,3}$
+  Actions:
+    - Description: Update Series Number to 99999999
+      Type: add_or_update
+      Destination:
+        Tag: 0020,0011
+        Value: '99999999'
