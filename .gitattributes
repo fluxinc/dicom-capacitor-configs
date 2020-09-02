@@ -2,4 +2,5 @@
 *.bat       text eol=crlf
 *.yml       text eol=crlf
 *.xml       text eol=crlf
+*.md        text eol=lf
 
