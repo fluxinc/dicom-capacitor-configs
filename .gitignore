@@ -1,5 +1,7 @@
+.vscode
 *.bak.xml
 log
 cache
 *.swp
-
+private_tags.0.xml
+*~
