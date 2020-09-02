@@ -1,4 +1,4 @@
-.vscode/
+.vscode
 *.bak.xml
 log
 cache
@@ -7,7 +7,5 @@ cache
 * - *
 *.bak
 ??-*
-*~
 private_tags.0.xml
-input/
-output/
+*~
