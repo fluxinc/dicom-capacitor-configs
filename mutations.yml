@@ -188,11 +188,11 @@
       Destination:
         Tag: 0008,1090
         Value: Selenia Dimensions
-    - Description: Update Image Type
-      Type: add_or_update
-      Destination:
-        Tag: 0008,0008
-        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
+    #- Description: Update Image Type
+    #  Type: add_or_update
+    #  Destination:
+    #    Tag: 0008,0008
+    #    Value: DERIVED\PRIMARY\TOMOSYNTHESIS\NONE
     - Description: Update Series Number
       Type: add_or_update
       Destination:
@@ -220,21 +220,34 @@
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
-    #    - Description: Update manufacturer
-    #      Type: add_or_update
-    #      Destination:
-    #        Tag: 0008,0070
-    #        Value: HOLOGIC, Inc.
-    #    - Description: Update model
-    #      Type: add_or_update
-    #      Destination:
-    #        Tag: 0008,1090
-    #        Value: Selenia Dimensions
     #    - Description: Update Image Type
     #      Type: add_or_update
     #      Destination:
     #        Tag: 0008,0008
     #        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
+    - Description: Make new study Instance UID
+      Source:
+        Tag: 0020,000d
+        Expression: ^(.+)$
+      Destination:
+        Tag: 0020,000d
+        Value: $1.0
+    - Description: Set study time
+      Destination:
+        Tag: 0008,0030
+        Value: 000000
+    - Description: Set series time
+      Destination:
+        Tag: 0008,0031
+        Value: 000000
+    - Description: Set acquisition time
+      Destination:
+        Tag: 0008,0032
+        Value: 000000
+    - Description: Set content time
+      Destination:
+        Tag: 0008,0033
+        Value: 000000
     - Description: Update Series Number
       Type: add_or_update
       Destination:
