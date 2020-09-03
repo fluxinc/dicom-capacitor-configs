@@ -12,8 +12,8 @@
   </DicomNodes>
   <DicomNodes>
     <Role>Storage</Role>
-    <AeTitle>RADMANAGER</AeTitle>
-    <HostName>127.0.0.1</HostName>
+    <AeTitle>mcscmgr</AeTitle>
+    <HostName>10.250.7.92</HostName>
     <Port>104</Port>
     <Impersonate>true</Impersonate>
     <TransferSyntax>JPEGLossless</TransferSyntax>

@@ -4,7 +4,7 @@
   Actions:
     - Description: Add SecurView
       Type: add_destination
-      Target: RADMANAGER
+      Target: mcscmgr
       #- Actions:
       #- Description: Keep backups
       #Type: save_file
