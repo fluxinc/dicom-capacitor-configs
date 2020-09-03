@@ -2,43 +2,30 @@
 <DicomNodesDataSet>
   <DicomNodes>
     <Role>Storage</Role>
-    <AeTitle>UTSW_SCP</AeTitle>
-    <HostName>129.112.8.253</HostName>
+    <AeTitle>STENTOR_SCP</AeTitle>
+    <HostName>143.111.215.24</HostName>
     <Port>104</Port>
-    <BatchSize>0</BatchSize>
-    <TransferSyntax>JPEGLossless</TransferSyntax>
     <Impersonate>true</Impersonate>
+    <TransferSyntax>JPEGLossless</TransferSyntax>
     <Instances>0</Instances>
     <Status>Echo</Status>
   </DicomNodes>
   <DicomNodes>
     <Role>Storage</Role>
     <AeTitle>RADMANAGER</AeTitle>
-    <HostName>199.242.237.153</HostName>
-    <Port>104</Port>
-    <BatchSize>1</BatchSize>
-    <TransferSyntax>JPEGLossless</TransferSyntax>
-    <Impersonate>true</Impersonate>
-    <Instances>0</Instances>
-    <Status>Echo</Status>
-  </DicomNodes>
-  <DicomNodes>
-    <Role>Storage</Role>
-    <AeTitle>UTSWICAD3</AeTitle>
-    <HostName>172.28.217.3</HostName>
-    <Port>104</Port>
-    <Impersonate>true</Impersonate>
-    <Instances>0</Instances>
-    <Status>Echo</Status>
-    <Interval>5</Interval>
-  </DicomNodes>
-  <DicomNodes>
-    <Role>Storage</Role>
-    <AeTitle>LOOPBACK</AeTitle>
     <HostName>127.0.0.1</HostName>
-    <Port>4444</Port>
+    <Port>104</Port>
     <Impersonate>true</Impersonate>
     <TransferSyntax>JPEGLossless</TransferSyntax>
+    <BatchSize>1</BatchSize>
+    <Instances>0</Instances>
+    <Status>Echo</Status>
+  </DicomNodes>
+  <DicomNodes>
+    <Role>Storage</Role>
+    <AeTitle>MAMMDIAG4</AeTitle>
+    <HostName>10.250.4.40</HostName>
+    <Port>104</Port>
     <Instances>0</Instances>
     <Status>Echo</Status>
     <Interval>5</Interval>
