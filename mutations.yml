@@ -228,7 +228,7 @@
     - Description: Make new study Instance UID
       Source:
         Tag: 0020,000d
-        Expression: ^(.+)$
+        Expression: ^(.{1,61}[^\.])\.?(.*)$
       Destination:
         Tag: 0020,000d
         Value: $1.0
