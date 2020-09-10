@@ -66,6 +66,11 @@
       Destination:
         Tag: 0008,0008
         Value: DERIVED\PRIMARY
+    - Description: Update Series Number
+      Type: add_or_update
+      Destination:
+        Tag: 0020,0011
+        Value: '71100000'
     - Description: Update Series description 2D
       Type: add_or_update
       Source:
@@ -155,7 +160,7 @@
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '71400000'
+        Value: '73300000'
     - Description: Update Series description
       Type: add_or_update
       Source:
@@ -173,7 +178,7 @@
         Tag: 0018,1030
         Value: $1 $2 ComboHD
 
-# BTO_TOMO -> Breast Tomosynthesis Image 72400000
+# BTO_TOMO -> Breast Tomosynthesis Image 73200000
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO$
@@ -197,7 +202,7 @@
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '72400000'
+        Value: '73200000'
     - Description: Update Series description
       Type: add_or_update
       Source:
@@ -215,44 +220,44 @@
         Tag: 0018,1030
         Value: $1 $2 ComboHD
 
-# Insight 3D -> Breast Projection Image 72400000
+# Insight 3D -> i3D Breast Tomosynthesis Image 74200000
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
-    #    - Description: Update Image Type
-    #      Type: add_or_update
-    #      Destination:
-    #        Tag: 0008,0008
-    #        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
+    - Description: Update Image Type
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0008
+        Value: DERIVED\PRIMARY\TOMOSYNTHESIS\INSIGHT_3D
     - Description: Make new study Instance UID
       Source:
         Tag: 0020,000d
         Expression: ^(.{1,61}[^\.])\.?(.*)$
       Destination:
         Tag: 0020,000d
-        Value: $1.0
+        Value: $1.1
     - Description: Set study time
       Destination:
         Tag: 0008,0030
-        Value: 000000
+        Value: 000001
     - Description: Set series time
       Destination:
         Tag: 0008,0031
-        Value: 000000
+        Value: 000001
     - Description: Set acquisition time
       Destination:
         Tag: 0008,0032
-        Value: 000000
+        Value: 000001
     - Description: Set content time
       Destination:
         Tag: 0008,0033
-        Value: 000000
+        Value: 000001
     - Description: Update Series Number
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '80000000'
+        Value: '74200000'
     - Description: Update Series description
       Type: add_or_update
       Source:
@@ -260,12 +265,12 @@
         Expression: ^BTO_INSIGHT 3D (L|R)-([A-Z]{2,4}) .+$
       Destination:
         Tag: 0008,103e
-        Value: $1 $2 Insight 3D Tomosynthesis Image
+        Value: $1 $2 i3D Breast Tomosynthesis Image
     - Description: Update Protocol
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^(L|R) ([A-Z]{2,4}) Insight 3D Tomosynthesis Image$
+        Expression: ^(L|R) ([A-Z]{2,4}) i3D Breast Tomosynthesis Image$
       Destination:
         Tag: 0018,1030
         Value: $1 $2 ComboHD

@@ -16,8 +16,8 @@
     <AeTitle>RADMANAGER</AeTitle>
     <HostName>199.242.237.153</HostName>
     <Port>104</Port>
-    <BatchSize>1</BatchSize>
-    <TransferSyntax>JPEGLossless</TransferSyntax>
+    <BatchSize>0</BatchSize>
+    <TransferSyntax></TransferSyntax>
     <Impersonate>true</Impersonate>
     <Instances>0</Instances>
     <Status>Echo</Status>
