@@ -263,11 +263,16 @@
     #  Destination:
     #    Tag: 0008,0033
     #    Value: 000001
+    - Description: Update SOP Class UID
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0016
+        Value: 1.2.840.10008.5.1.4.1.1.13.1.4
     - Description: Update Series Number
       Type: add_or_update
       Destination:
         Tag: 0020,0011
-        Value: '72400000'
+        Value: 72400000
     - Description: Update Series description
       Type: add_or_update
       Source:
