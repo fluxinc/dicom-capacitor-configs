@@ -240,13 +240,18 @@
       Destination:
         Tag: 0008,0008
         Value: DERIVED\PRIMARY\TOMO_PROJ\NONE
-    #    - Description: Make new study Instance UID
-    #      Source:
-    #        Tag: 0020,000d
-    #        Expression: ^(.{1,61}[^\.])\.?(.*)$
-    #      Destination:
-    #        Tag: 0020,000d
-    #        Value: $1.1
+    - Description: Update SOP Class UID
+      Type: add_or_update
+      Destination:
+        Tag: 0008,0016
+        Value: 1.2.840.10008.5.1.4.1.1.13.1.4
+    #- Description: Make new study Instance UID
+    #  Source:
+    #    Tag: 0020,000d
+    #    Expression: ^(.{1,61}[^\.])\.?(.*)$
+    #  Destination:
+    #    Tag: 0020,000d
+    #    Value: $1.1
     #- Description: Set study time
     #  Destination:
     #    Tag: 0008,0030
@@ -263,11 +268,6 @@
     #  Destination:
     #    Tag: 0008,0033
     #    Value: 000001
-    - Description: Update SOP Class UID
-      Type: add_or_update
-      Destination:
-        Tag: 0008,0016
-        Value: 1.2.840.10008.5.1.4.1.1.13.1.4
     - Description: Update Series Number
       Type: add_or_update
       Destination:
