@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<DicomNodesDataSet>
+    <DicomNodes>
+        <Role>Storage</Role>
+        <AeTitle>DTSTGEPACS</AeTitle>
+        <HostName>172.21.255.34</HostName>
+        <Port>4100</Port>
+        <Impersonate>true</Impersonate>
+        <TransferSyntax></TransferSyntax>
+        <BatchSize></BatchSize>
+        <MinimumLineSpeed></MinimumLineSpeed>
+    </DicomNodes>
+    <DicomNodes>
+        <Role>Storage</Role>
+        <AeTitle>JPDASPOOL</AeTitle>
+        <HostName>172.19.138.29</HostName>
+        <Port>4100</Port>
+        <Impersonate>true</Impersonate>
+        <TransferSyntax></TransferSyntax>
+        <BatchSize></BatchSize>
+        <MinimumLineSpeed></MinimumLineSpeed>
+    </DicomNodes>
+    <DicomNodes>
+        <Role>Storage</Role>
+        <AeTitle>MODLINK</AeTitle>
+        <HostName>10.251.161.74</HostName>
+        <Port>104</Port>
+        <Impersonate>true</Impersonate>
+        <TransferSyntax></TransferSyntax>
+        <BatchSize></BatchSize>
+        <MinimumLineSpeed></MinimumLineSpeed>
+    </DicomNodes>
+</DicomNodesDataSet>
