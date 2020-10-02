@@ -7,7 +7,7 @@
         <Port>4100</Port>
         <Impersonate>true</Impersonate>
         <TransferSyntax></TransferSyntax>
-        <BatchSize></BatchSize>
+        <BatchSize>0</BatchSize>
         <MinimumLineSpeed></MinimumLineSpeed>
     </DicomNodes>
     <DicomNodes>
@@ -17,17 +17,17 @@
         <Port>4100</Port>
         <Impersonate>true</Impersonate>
         <TransferSyntax></TransferSyntax>
-        <BatchSize></BatchSize>
+        <BatchSize>0</BatchSize>
         <MinimumLineSpeed></MinimumLineSpeed>
     </DicomNodes>
     <DicomNodes>
         <Role>Storage</Role>
         <AeTitle>MODLINK</AeTitle>
         <HostName>10.251.161.74</HostName>
-        <Port>104</Port>
+        <Port>9100</Port>
         <Impersonate>true</Impersonate>
         <TransferSyntax></TransferSyntax>
-        <BatchSize></BatchSize>
+        <BatchSize>0</BatchSize>
         <MinimumLineSpeed></MinimumLineSpeed>
     </DicomNodes>
 </DicomNodesDataSet>
