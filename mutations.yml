@@ -221,7 +221,9 @@
         Value: $1 $2 ComboHD
 
 # Insight 3D -> i3D Breast Tomosynthesis Image 74200000
-- Conditions:
+- AeTitles:
+    - RADMANAGER
+  Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
