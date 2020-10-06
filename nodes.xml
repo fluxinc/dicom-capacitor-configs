@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="yes"?>
+<DicomNodesDataSet>
+    <DicomNodes>
+        <Role>Storage</Role>
+        <AeTitle>CARD_ARC</AeTitle>
+        <HostName>10.1.20.16</HostName>
+        <Port>12100</Port><!-- TODO: Verify this with client -->
+        <Impersonate>true</Impersonate>
+        <TransferSyntax></TransferSyntax>
+        <BatchSize></BatchSize>
+        <MinimumLineSpeed></MinimumLineSpeed>
+    </DicomNodes>
+</DicomNodesDataSet>
