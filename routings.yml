@@ -1,0 +1,12 @@
+---
+- AeTitles:
+    - JPDASPOOL
+    - DTSTGEPACS
+  Conditions:
+    - MatchTag: 0008,0016
+      MatchExpression: ^1\.2\.840\.10008\.5\.1\.4\.1\.1\.88\.[\d]{1,2}$
+  Actions:
+    - Description: Re-route to MODLINK
+      Type: add_destination
+      Target: MODLINK
+      RemoveOriginal: true
