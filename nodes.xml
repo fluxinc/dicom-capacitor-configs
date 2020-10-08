@@ -5,7 +5,7 @@
         <AeTitle>DTSTGEPACS</AeTitle>
         <HostName>172.21.255.34</HostName>
         <Port>4100</Port>
-        <Impersonate>true</Impersonate>
+        <Impersonate>false</Impersonate>
         <TransferSyntax></TransferSyntax>
         <BatchSize>0</BatchSize>
         <MinimumLineSpeed></MinimumLineSpeed>
