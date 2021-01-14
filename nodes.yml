@@ -1,0 +1,24 @@
+- AeTitle: JNJ_RAD_JOI_ST
+  HostName: 10.187.140.32
+  Impersonate: true
+  TransferSyntax:
+  Port: 104
+  BatchSize: 0
+  MinimumLineSpeed: 500
+  NodeRole: Storage
+- AeTitle: JCCI-ROUTER
+  HostName: 10.189.245.21
+  Impersonate: true
+  TransferSyntax:
+  Port: 104
+  BatchSize: 0
+  MinimumLineSpeed: 500
+  NodeRole: Storage
+- AeTitle: EPICRADIANT
+  HostName: 10.185.140.20
+  Impersonate: true
+  TransferSyntax:
+  Port: 2762
+  BatchSize: 0
+  MinimumLineSpeed: 500
+  NodeRole: Worklist

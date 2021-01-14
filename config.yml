@@ -1,0 +1,24 @@
+activationCode: ''
+myAeTitle: FLUX_CAPACITOR
+echoInterval: 0
+daysToKeepLogs: 60
+worklistInterval: 30000
+autoSaveLineSpeed: false
+defaultTransferSyntax:
+worklistDays: 0
+findScpPort: 1041
+expiryThreshhold: 604800
+scpPort: 1040
+filters: 'mutate'
+studyThreshold: 0
+storageInterval: 5000
+clientTimeout: 600
+maxDataBuffer: 1048776
+maxClientsPerServer: 0
+minFreeSpace: 10
+minimumAge: 5
+dropUnfilteredInstances: false
+minimumLineSpeed: 500
+batchSize: 0
+cachePath: 'X:\Cache'
+maxPDVsPerPDU: 1
