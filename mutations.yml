@@ -1,5 +1,5 @@
 ---
-# ORIGINAL MAMMOGRAM -> 2D 71200000
+# DERIVED MAMMOGRAM -> No modifier
 - Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^ORIGINAL\\.*$
@@ -18,26 +18,7 @@
         Tag: 0008,103e
         Value: $1 $2
 
-# DERIVED MAMMOGRAM -> 2D 71300000
-- Conditions:
-    - MatchTag: 0008,0008
-      MatchExpression: ^ORIGINAL\\.*$
-    - MatchTag: 0018,1030
-      MatchExpression: ^MAMMOGRAM$
-  Actions:
-    - Description: Update Series description 2D
-      Type: add_or_update
-      Source:
-        Tag: 0055,1001
-        Expression: ^.*(R|L)-([A-Z]{2,4}).*$
-        PrivateTagCreator: SIEMENS MED SP DXMG WH AWS 1
-        PrivateTagVR: LO
-        PrivateTagVM: 1
-      Destination:
-        Tag: 0008,103e
-        Value: $1 $2
-
-# TOMO_PROJ -> 2D 71300000
+# TOMO_PROJ -> 2D Projection
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO_PROJ$
@@ -51,7 +32,7 @@
         Tag: 0008,103e
         Value: $1 $2 Projection
 
-# INSIGHT_2D -> C-View 71400000
+# INSIGHT_2D -> Insight 2D
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_2D$
@@ -65,7 +46,7 @@
         Tag: 0008,103e
         Value: $1 $2 Insight 2D
 
-# BTO_TOMO -> Breast Tomosynthesis Image 72400000
+# BTO_TOMO -> Breast Tomosynthesis
 - Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO$
