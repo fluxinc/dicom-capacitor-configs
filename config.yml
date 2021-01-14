@@ -20,5 +20,5 @@ minimumAge: 5
 dropUnfilteredInstances: false
 minimumLineSpeed: 500
 batchSize: 0
-cachePath: 'X:\Cache'
+cachePath: 'X:\Cache\'
 maxPDVsPerPDU: 1
