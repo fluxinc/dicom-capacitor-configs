@@ -1,0 +1,18 @@
+activationCode:
+minimumAge: 5
+scpPort: 1040
+defaultTransferSyntax: JPEG2000Lossless
+maxDataBuffer: 1048776
+interval: 60
+minFreeSpace: 15
+findScpPort: 1041
+skipFailedCompression: true
+maxPDVsPerPDU: 1
+maxClientsPerServer: 0
+storageTimeout: 60
+myAeTitle: FLUX_SERVER2/3
+dropUnfilteredInstances: false
+expirationAge: 1000000
+worklistDays: 0
+batchSize: 0
+cachePath: X:\Cache
