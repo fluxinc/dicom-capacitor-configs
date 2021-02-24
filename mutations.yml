@@ -1,6 +1,9 @@
 ---
-# DERIVED MAMMOGRAM -> No modifier
-- Conditions:
+# 1 DERIVED MAMMOGRAM -> No modifier
+- AeTitles:
+    - JCCI-ROUTER
+    - JNJ_RAD_MG_ST
+  Conditions:
     - MatchTag: 0008,0008
       MatchExpression: ^ORIGINAL\\.*$
     - MatchTag: 0018,1030
@@ -18,8 +21,11 @@
         Tag: 0008,103e
         Value: $1 $2
 
-# TOMO_PROJ -> 2D Projection
-- Conditions:
+# 2 TOMO_PROJ -> 2D Projection
+- AeTitles:
+    - JCCI-ROUTER
+    - JNJ_RAD_MG_ST
+  Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO_PROJ$
   Actions:
@@ -27,13 +33,16 @@
       Type: add_or_update
       Source:
         Tag: 0008,103e
-        Expression: ^T_PR (L|R)-([A-Z]{2,4}) .+$
+        Expression: ^T_PR(?:_raw)? (L|R)-([A-Z]{2,4}) .+$
       Destination:
         Tag: 0008,103e
-        Value: $1 $2 Projection
+        Value: $1 $2
 
-# INSIGHT_2D -> Insight 2D
-- Conditions:
+# 3 INSIGHT_2D -> Insight 2D
+- AeTitles:
+    - JCCI-ROUTER
+    - JNJ_RAD_MG_ST
+  Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_2D$
   Actions:
@@ -46,8 +55,11 @@
         Tag: 0008,103e
         Value: $1 $2 Insight 2D
 
-# BTO_TOMO -> Breast Tomosynthesis
-- Conditions:
+# 4 BTO_TOMO -> Breast Tomosynthesis
+- AeTitles:
+    - JCCI-ROUTER
+    - JNJ_RAD_MG_ST
+  Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^TOMO$
   Actions:
@@ -60,8 +72,11 @@
         Tag: 0008,103e
         Value: $1 $2 Breast Tomosynthesis
 
-# Insight 3D -> Breast Projection Image 72400000
-- Conditions:
+# 5 Insight 3D -> Breast Projection Image 72400000
+- AeTitles:
+    - JCCI-ROUTER
+    - JNJ_RAD_MG_ST
+  Conditions:
     - MatchTag: 0018,1030
       MatchExpression: ^INSIGHT_3D$
   Actions:
@@ -73,3 +88,21 @@
       Destination:
         Tag: 0008,103e
         Value: $1 $2 Insight 3D
+
+- AeTitles:
+    - EPICRADIANT
+  Affects:
+    - worklist_result
+  Actions:
+    - Description: Add seconds to worklist time
+      Type: add_or_update
+      Source:
+        Tag: 0040,0100
+        SequenceItems:
+          - Tag: 0040,0003
+            Expression: ^(.+)$
+      Destination:
+        Tag: 0040,0100
+        SequenceItems:
+          - Tag: 0040,0003
+            Value: ${1}00
