@@ -8,7 +8,7 @@ defaultTransferSyntax:
 dropUnfilteredInstances: false
 echoInterval: 0
 expiryThreshhold: 604800
-filters: 'mutate'
+filters: 'route,mutate'
 findScpPort: 2762
 maxClientsPerServer: 0
 maxDataBuffer: 1048776

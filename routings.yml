@@ -1,0 +1,11 @@
+---
+- AeTitles:
+    - JCCI-ROUTER
+  Conditions:
+    - MatchTag: 0008,0016
+      MatchExpression: ^1\.2\.840\.10008\.5\.1\.4\.1\.1\.88\.67$
+  Actions:
+    - Description: Save Radiant Dose SR
+      Type: save_file
+      Target: X:\cache\stuctured_reports
+      RemoveOriginal: true
