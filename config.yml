@@ -16,6 +16,6 @@ minimumAge: 5
 myAeTitle: FLUX_SERVER4
 scpPort: 1040
 storageInterval: 5000
-studyThreshold: 1800
+studyThreshold: 0
 worklistDays: 0
 worklistInterval: 0
