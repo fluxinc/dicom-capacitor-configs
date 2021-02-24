@@ -9,7 +9,7 @@ dropUnfilteredInstances: false
 echoInterval: 0
 expiryThreshhold: 604800
 filters: 'mutate'
-findScpPort: 1041
+findScpPort: 2762
 maxClientsPerServer: 0
 maxDataBuffer: 1048776
 maxPDVsPerPDU: 1
@@ -20,5 +20,5 @@ myAeTitle: FLUX_CAPACITOR
 scpPort: 1040
 storageInterval: 5000
 studyThreshold: 0
-worklistDays: 0
+worklistDays: 1
 worklistInterval: 30000
