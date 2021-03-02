@@ -1,4 +1,13 @@
 # VNA
+- AeTitle: JNJ_RAD_ST
+  HostName: 10.187.140.32
+  Impersonate: true
+  TransferSyntax:
+  Port: 104
+  BatchSize: 0
+  MinimumLineSpeed: 500
+  NodeRole: Storage
+
 - AeTitle: JNJ_RAD_MG_ST
   HostName: 10.187.140.32
   Impersonate: true
@@ -8,9 +17,19 @@
   MinimumLineSpeed: 500
   NodeRole: Storage
 
-# JOI Router (Auto-transfer Primary)
+# JOI Router (Default in NJ)
 - AeTitle: JCCI-ROUTER
   HostName: 10.189.245.21
+  Impersonate: true
+  TransferSyntax:
+  Port: 104
+  BatchSize: 0
+  MinimumLineSpeed: 500
+  NodeRole: Storage
+
+# iSite (Default in Eastern Township)
+- AeTitle: STENTOR_SCP
+  HostName: 10.187.126.130
   Impersonate: true
   TransferSyntax:
   Port: 104
