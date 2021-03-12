@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<DicomNodesDataSet>
+  <DicomNodes>
+    <AeTitle>PENICADSR</AeTitle>
+    <HostName>192.168.7.26</HostName>
+    <Port>2114</Port>
+    <Impersonate>true</Impersonate>
+    <Instances>0</Instances>
+    <Status>Up</Status>
+  </DicomNodes>
+</DicomNodesDataSet>

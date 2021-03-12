@@ -1,0 +1,8 @@
+scpPort: 1040
+cachePath: C:\ProgramData\Flux Inc\DICOM Capacitor\cache
+resendAgeThreshhold: 5
+myAeTitle: FLUX_CAPACITOR
+dropUnfilteredInstances: true
+minFreeSpace: 10
+interval: 60
+expiryThreshhold: 86400
